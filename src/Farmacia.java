@@ -1,15 +1,19 @@
 public class Farmacia {
-    private String nome;
+    private String descrizione;
     private String indirizzo;
-    private String città;
+    private String comune;
 
-
-    public String getNome() {
-        return nome;
+    public Farmacia(String descrizione, String indirizzo, String comune) {
+        this.descrizione = descrizione;
+        this.indirizzo = indirizzo;
+        this.comune = comune;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+
+    public String getDescrizione(){return descrizione;}
+
+    public void setDescrizione(String nome) {
+        this.descrizione = nome;
     }
 
     public String getIndirizzo() {
@@ -20,13 +24,21 @@ public class Farmacia {
         this.indirizzo = indirizzo;
     }
 
-    public String getCittà() {
-        return città;
+    public String getComune() {
+        return comune;
     }
 
-    public void setCittà(String città) {
-        this.città = città;
+    public void setComune(String città) {
+        this.comune = città;
     }
 
 
+    @Override
+    public String toString() {
+        return "Farmacia{" +
+                "descrizione='" + descrizione + '\'' +
+                ", indirizzo='" + indirizzo + '\'' +
+                ", comune='" + comune + '\'' +
+                '}';
+    }
 }
