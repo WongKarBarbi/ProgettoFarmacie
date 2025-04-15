@@ -41,22 +41,57 @@ public class Archivio {
         }
     }
 
-
-    //metodo di filtraggio
-    public void filtraIndirizzo(){}
-
-    public void filtraNome(){}
-
-    public void filtraCittà(){}
-
+    public void sceltaRicerca(int selezione,Farmacia farmacia){
+        switch(selezione){
+            case 1:
+                ricercaSpecifica(farmacia);
+                break;
+            case 2:
+                ricercaIndirizzo(farmacia.getIndirizzo());
+                break;
+            case 3:
+                ricercaNome(farmacia.getDescrizione());
+                break;
+            case 4:
+                ricercaCittà(farmacia.getComune());
+                break;
+        }
+    }
 
 
     //metodo di ricerca
-    public void ricercaIndirizzo(){}
+    public String ricercaSpecifica(Farmacia farmacia){
+        String elencoFarmacie ="";
+        for(Farmacia f : farmacie){
+            if(f == farmacia){ elencoFarmacie += f.toString();}
+        }
+        return elencoFarmacie;
 
-    public void ricercaNome(){}
+    }
+    public String ricercaIndirizzo(String indirizzo){
+        String elencoFarmacie ="";
+        for(Farmacia f : farmacie){
+            if(f.getIndirizzo().equals(indirizzo)){ elencoFarmacie+=f.toString();}
+        }
+        return elencoFarmacie;
+    }
 
-    public void ricercaCittà(){}
+    public String ricercaNome(String nome){
+        String elencoFarmacie ="";
+        for(Farmacia f : farmacie){
+            if(f.getIndirizzo().equals(nome)){ elencoFarmacie+=f.toString();}
+        }
+        return elencoFarmacie;
+    }
+
+    public String ricercaCittà(String città){
+        String elencoFarmacie ="";
+        for(Farmacia f : farmacie){
+            if(f.getIndirizzo().equals(città)){ elencoFarmacie+=f.toString();}
+        }
+        return elencoFarmacie;
+
+    }
 
 
     //metodo di stampa
