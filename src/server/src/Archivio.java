@@ -1,3 +1,4 @@
+package server.src;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -17,7 +18,7 @@ public class Archivio {
             String riga;
             while((riga = br.readLine()) != null){
                 String [] info = riga.split(";");
-                if(info[0] == ""){
+                if(info[0].equalsIgnoreCase("")){
 
                     String indirizzo = "non disponibile";
                     String descrizione = info[1].trim();
@@ -41,63 +42,41 @@ public class Archivio {
         }
     }
 
-    public void sceltaRicerca(int selezione,Farmacia farmacia){
-        switch(selezione){
-            case 1:
-                ricercaSpecifica(farmacia);
-                break;
-            case 2:
-                ricercaIndirizzo(farmacia.getIndirizzo());
-                break;
-            case 3:
-                ricercaNome(farmacia.getDescrizione());
-                break;
-            case 4:
-                ricercaCittà(farmacia.getComune());
-                break;
-        }
-    }
-
-
     //metodo di ricerca
     public String ricercaSpecifica(Farmacia farmacia){
         String elencoFarmacie ="";
         for(Farmacia f : farmacie){
-            if(f == farmacia){ elencoFarmacie += f.toString();}
+            if(f == farmacia){ elencoFarmacie += f.toString()+ "\n";}
         }
         return elencoFarmacie;
-
     }
     public String ricercaIndirizzo(String indirizzo){
         String elencoFarmacie ="";
         for(Farmacia f : farmacie){
-            if(f.getIndirizzo().equals(indirizzo)){ elencoFarmacie+=f.toString();}
+            if(f.getIndirizzo().equalsIgnoreCase(indirizzo)){ elencoFarmacie+=f.toString()+ "\n";}
         }
         return elencoFarmacie;
     }
 
-    public String ricercaNome(String nome){
+    public String ricercaDescrizione(String descrizione){
         String elencoFarmacie ="";
         for(Farmacia f : farmacie){
-            if(f.getIndirizzo().equals(nome)){ elencoFarmacie+=f.toString();}
+            if(f.getDescrizione().equalsIgnoreCase(descrizione)){ elencoFarmacie+=f.toString() + "\n";}
         }
         return elencoFarmacie;
     }
 
-    public String ricercaCittà(String città){
+    public String ricercaComune(String comune){
         String elencoFarmacie ="";
         for(Farmacia f : farmacie){
-            if(f.getIndirizzo().equals(città)){ elencoFarmacie+=f.toString();}
+            if(f.getComune().equalsIgnoreCase(comune)){ elencoFarmacie+=f.toString()+ "\n";}
         }
         return elencoFarmacie;
-
     }
 
 
     //metodo di stampa
-
     public void stampaDati(){
-
         for(int i = 0; i<farmacie.size();i++){
             System.out.println(farmacie.get(i).toString());
         }

@@ -1,3 +1,4 @@
+package server.src;
 public class Farmacia {
     private String descrizione;
     private String indirizzo;
@@ -8,6 +9,8 @@ public class Farmacia {
         this.indirizzo = indirizzo;
         this.comune = comune;
     }
+
+    public Farmacia(){}
 
 
     public String getDescrizione(){return descrizione;}
