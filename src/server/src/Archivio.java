@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Archivio {
 
-    private int lunghezza;
+    //private int lunghezza;
     private ArrayList <Farmacia> farmacie = new ArrayList<>();
 
     public Archivio() {
@@ -26,7 +26,7 @@ public class Archivio {
 
                     Farmacia farmacia = new Farmacia(descrizione,indirizzo,comune);
                     farmacie.add(farmacia);
-                    lunghezza++;
+                    //lunghezza++;
                 }else{
                     String indirizzo = info[0].trim();
                     String descrizione = info[1].trim();
@@ -34,7 +34,7 @@ public class Archivio {
 
                     Farmacia farmacia = new Farmacia(descrizione,indirizzo,comune);
                     farmacie.add(farmacia);
-                    lunghezza++;
+                    //lunghezza++;
                 }
             }
         } catch (IOException e) {
@@ -76,13 +76,18 @@ public class Archivio {
 
 
     //metodo di stampa
-    public void stampaDati(){
+    public String stampaDati(){
+        String stampaFarmacie = "";
         for(int i = 0; i<farmacie.size();i++){
-            System.out.println(farmacie.get(i).toString());
+            stampaFarmacie += farmacie.get(i).toString() +"\n";
         }
+        return stampaFarmacie;
     }
 
+    /*
     public void stampaLunghezza(){
         System.out.println(lunghezza);
     }
+
+     */
 }
